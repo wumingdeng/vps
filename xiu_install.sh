@@ -85,7 +85,7 @@ install_base() {
 config_after_install() {
     read -p "请设置您的账户名:" config_account
     echo -e "${yellow}您的账户名将设定为:${config_account}${plain}"
-    echo -e "${yellow}您的账户密码将设定为:${config_account}${plain}p"
+    echo -e "${yellow}您的账户密码将设定为:${config_account}${plain}_p"
     echo -e "${yellow}您的网站端口将设定为:25423"
     # read -p "确认是否继续?[y/n]": config_confirm
     # if [[ x"${config_confirm}" == x"y" || x"${config_confirm}" == x"Y" ]]; then
