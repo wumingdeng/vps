@@ -7,6 +7,16 @@ plain='\033[0m'
 
 cur_dir=$(pwd)
 
+# 检查参数
+if [ $# -eq 0 ]; then
+    echo -e "${red}错误：${plain} 请提供账户名参数！"
+    echo -e "使用方法: $0 <账户名>"
+    echo -e "示例: $0 myuser"
+    exit 1
+fi
+
+config_account="$1"
+
 # check root
 [[ $EUID -ne 0 ]] && echo -e "${red}错误：${plain} 必须使用root用户运行此脚本！\n" && exit 1
 
@@ -83,7 +93,6 @@ install_base() {
 
 #This function will be called when user installed x-ui out of sercurity
 config_after_install() {
-    read -p "请设置您的账户名:" config_account
     echo -e "${yellow}您的账户名将设定为:${config_account}${plain}"
     echo -e "${yellow}您的账户密码将设定为:${config_account}${plain}_p"
     echo -e "${yellow}您的网站端口将设定为:25423"
